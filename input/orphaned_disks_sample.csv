@@ -1,0 +1,6 @@
+SubscriptionName,ResourceGroup,DiskName,Location,DiskSku,DiskSizeGB,AgeDays,Classification
+ProdSub,rg-app,disk-test-01,eastus,Premium_LRS,128,45,SAFE
+ProdSub,rg-db,disk-test-02,eastus,StandardSSD_LRS,64,20,REVIEW
+DevSub,rg-dev,disk-test-03,westus,Standard_LRS,512,90,SAFE
+SharedSub,rg-shared,disk-template-01,centralus,Premium_LRS,256,15,EXCLUDE
+OpsSub,rg-ops,disk-old-01,eastus2,StandardSSD_LRS,1024,120,SAFE
