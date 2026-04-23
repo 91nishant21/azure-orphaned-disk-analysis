@@ -1,6 +1,6 @@
 SubscriptionName,ResourceGroup,DiskName,Location,DiskSku,DiskSizeGB,AgeDays,Classification,EstimatedMonthlyCost,Severity,PipelineRunTimestamp
-OpsSub,rg-ops,disk-old-01,eastus2,StandardSSD_LRS,1024,120,SAFE,81.92,High,2026-04-14 10:48:35
-SharedSub,rg-shared,disk-template-01,centralus,Premium_LRS,256,15,EXCLUDE,30.72,Low,2026-04-14 10:48:35
-DevSub,rg-dev,disk-test-03,westus,Standard_LRS,512,90,SAFE,25.6,High,2026-04-14 10:48:35
-ProdSub,rg-app,disk-test-01,eastus,Premium_LRS,128,45,SAFE,15.36,Medium,2026-04-14 10:48:35
-ProdSub,rg-db,disk-test-02,eastus,StandardSSD_LRS,64,20,REVIEW,5.12,Low,2026-04-14 10:48:35
+OpsSub,rg-ops,disk-old-01,eastus2,StandardSSD_LRS,1024,120,SAFE,81.92,High,2026-04-23 08:38:19
+SharedSub,rg-shared,disk-template-01,centralus,Premium_LRS,256,15,EXCLUDE,30.72,Low,2026-04-23 08:38:19
+DevSub,rg-dev,disk-test-03,westus,Standard_LRS,512,90,SAFE,25.6,High,2026-04-23 08:38:19
+ProdSub,rg-app,disk-test-01,eastus,Premium_LRS,128,45,SAFE,15.36,Medium,2026-04-23 08:38:19
+ProdSub,rg-db,disk-test-02,eastus,StandardSSD_LRS,64,20,REVIEW,5.12,Low,2026-04-23 08:38:19

@@ -2,22 +2,23 @@ import os
 import sys
 import streamlit as st
 
-# Make project root importable when running from app folder
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src")))
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+sys.path.append(BASE_DIR)
 
-from finops_query_engine import FinOpsQueryEngine
-from finops_llm_helper import FinOpsLLMHelper
-
+from src.ai.finops_query_engine import FinOpsQueryEngine
+from src.ai.finops_llm_helper import FinOpsLLMHelper
 
 st.set_page_config(page_title="FinOps AI Assistant", layout="wide")
 
-engine = FinOpsQueryEngine(data_path="samples")
+SAMPLES_PATH = os.path.join(BASE_DIR, "samples")
+
+engine = FinOpsQueryEngine(data_path=SAMPLES_PATH)
 helper = FinOpsLLMHelper()
 
 
 def detect_days_from_query(query: str, default: int = 60) -> int:
     words = query.lower().split()
-    for i, word in enumerate(words):
+    for word in words:
         if word.isdigit():
             return int(word)
         if word.endswith("days"):

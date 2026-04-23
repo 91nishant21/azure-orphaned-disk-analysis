@@ -1,5 +1,5 @@
-from finops_query_engine import FinOpsQueryEngine
-from finops_llm_helper import FinOpsLLMHelper
+from src.ai.finops_query_engine import FinOpsQueryEngine
+from src.ai.finops_llm_helper import FinOpsLLMHelper
 
 engine = FinOpsQueryEngine()
 helper = FinOpsLLMHelper()

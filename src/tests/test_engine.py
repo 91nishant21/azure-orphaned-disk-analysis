@@ -1,4 +1,4 @@
-from finops_query_engine import FinOpsQueryEngine
+from src.ai.finops_query_engine import FinOpsQueryEngine
 
 engine = FinOpsQueryEngine()
 
