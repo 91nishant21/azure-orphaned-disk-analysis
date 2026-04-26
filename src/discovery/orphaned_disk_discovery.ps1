@@ -1,33 +1,55 @@
 <#
-Purpose:
-Identify orphaned (unattached) Azure managed disks across subscriptions and export results
-for validation and cost optimization analysis.
+===========================================================
+Project   : Azure FinOps Optimization – Orphaned Disk Cleanup
+Module    : Discovery & Data Collection
+File      : orphaned_disk_discovery.ps1
+Version   : v1.0
+Author    : Internal Use
+Created   : 2026-04-26
+Updated   : 2026-04-26
 
-Public-safe defaults:
-- Hides SubscriptionId, DiskId, and tag VALUES by default.
-- Read-only: NO delete operations.
+Description:
+-----------------------------------------------------------
+Discovers orphaned (unattached) Azure managed disks across 
+all accessible subscriptions and exports results for 
+FinOps validation and cost optimization analysis.
 
-Classification:
-- SAFE   : Unattached, older than MinAgeDays, and no exclusions hit
-- REVIEW : Unattached but recently created (< MinAgeDays)
-- EXCLUDE: Excluded via tag keys or name patterns
+Key Functions:
+-----------------------------------------------------------
+- Authenticates securely with Azure (Az modules)
+- Scans all subscriptions for unmanaged disks
+- Identifies orphaned disks (ManagedBy = null)
+- Applies classification logic (SAFE / REVIEW / EXCLUDE)
+- Supports exclusion via tag keys and naming patterns
+- Exports results to CSV for downstream processing
 
-Prerequisites:
-- Az PowerShell modules: Az.Accounts, Az.Compute, Az.Resources
-- RBAC to list subscriptions and read disk resources.
+Inputs:
+-----------------------------------------------------------
+- Azure Subscriptions (via logged-in context)
+- Parameters:
+    * MinAgeDays (default: 30)
+    * ExcludeTagKeys
+    * ExcludeNamePatterns
+    * IncludeIdentifiers (optional)
+    * IncludeTagValues (optional)
 
-Usage examples:
-# Public-safe default
-.\orphaned-disk-analysis.ps1 -OutputPath ".\output"
+Outputs:
+-----------------------------------------------------------
+- CSV file: output/orphaned_disks_<timestamp>.csv
 
-# Include identifiers (ONLY for internal/private use)
-.\orphaned-disk-analysis.ps1 -OutputPath ".\output" -IncludeIdentifiers
+Dependencies:
+-----------------------------------------------------------
+- Az.Accounts
+- Az.Compute
+- Az.Resources
 
-# Include tag values (ONLY for internal/private use)
-.\orphaned-disk-analysis.ps1 -OutputPath ".\output" -IncludeTagValues
-
-# Tune thresholds/exclusions
-.\orphaned-disk-analysis.ps1 -MinAgeDays 45 -ExcludeTagKeys @("donotdelete","keep") -ExcludeNamePatterns @("golden","template")
+Notes:
+-----------------------------------------------------------
+- Read-only script (NO delete operations performed)
+- Default configuration is public-safe (no sensitive identifiers)
+- Output is consumed by downstream Python enrichment layer
+- Do not commit real environment outputs to public repositories
+===========================================================
 #>
 
 [CmdletBinding()]

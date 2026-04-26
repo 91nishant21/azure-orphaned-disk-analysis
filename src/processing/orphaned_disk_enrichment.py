@@ -1,3 +1,51 @@
+"""
+===========================================================
+Project   : Azure FinOps Optimization  Orphaned Disk Cleanup
+Module    : Data Processing & Enrichment
+File      : orphaned_disk_enrichment.py
+Version   : v1.0
+Author    : Internal Use
+Created   : 2026-04-26
+Updated   : 2026-04-26
+
+Description:
+-----------------------------------------------------------
+Enriches discovered orphaned disk data with cost, age, 
+severity, classification, and cleanup recommendation details.
+
+Key Functions:
+-----------------------------------------------------------
+- Reads raw orphaned disk inventory data
+- Calculates disk age and estimated savings opportunity
+- Classifies disks by severity and cleanup priority
+- Generates recommendation-ready datasets
+- Adds pipeline execution timestamp for reporting
+
+Inputs:
+-----------------------------------------------------------
+- Data Source: input/ or raw orphaned disk discovery output
+- Parameters : Disk metadata, SKU, size, age, and attachment status
+
+Outputs:
+-----------------------------------------------------------
+- samples/orphaned_disk_recommendations.csv
+- samples/orphaned_disk_summary.csv
+- samples/top_cleanup_candidates.csv
+
+Dependencies:
+-----------------------------------------------------------
+- pandas
+- os
+- datetime/logging modules, if used
+
+Notes:
+-----------------------------------------------------------
+- This script prepares the final datasets used by Power BI
+- Output files are consumed by dashboard and AI sidecar components
+- No client-specific or sensitive data is used
+===========================================================
+"""
+
 import csv
 import logging
 from pathlib import Path

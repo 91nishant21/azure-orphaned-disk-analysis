@@ -1,3 +1,52 @@
+"""
+===========================================================
+Project   : Azure FinOps Optimization – Orphaned Disk Cleanup
+Module    : Application / UI Layer
+File      : streamlit_app.py
+Version   : v1.0
+Author    : Internal Use
+Created   : 2026-04-26
+Updated   : 2026-04-26
+
+Description:
+-----------------------------------------------------------
+Interactive Streamlit-based dashboard and AI assistant for 
+visualizing and querying orphaned disk cost optimization data.
+
+Key Features:
+-----------------------------------------------------------
+- Displays orphaned disk insights and KPIs
+- Enables natural language queries via AI sidecar
+- Shows top savings opportunities and cleanup candidates
+- Provides executive summary and recommendations
+- Integrates processed datasets for real-time exploration
+
+Inputs:
+-----------------------------------------------------------
+- Data Source: samples/ (enriched datasets from processing layer)
+- User Input : Natural language queries (via UI)
+
+Outputs:
+-----------------------------------------------------------
+- Interactive dashboard (KPIs, charts, tables)
+- AI-generated insights and responses
+- Visual representation of savings and recommendations
+
+Dependencies:
+-----------------------------------------------------------
+- streamlit
+- FinOpsQueryEngine
+- FinOpsLLMHelper
+- pandas (if used)
+
+Notes:
+-----------------------------------------------------------
+- Acts as the presentation layer of the FinOps pipeline
+- Designed for internal stakeholders and demo purposes
+- Can be extended with authentication and deployment (Streamlit Cloud / Azure App Service)
+- No client-specific or sensitive data is used
+===========================================================
+"""
 import os
 import sys
 import streamlit as st
