@@ -182,6 +182,11 @@ src/app/streamlit_app.py
 http://localhost:8501
 
 ---
+##  Application Preview
+
+![streamlit app](streamlit_api.png)
+
+---
 
 ##  Features
 
